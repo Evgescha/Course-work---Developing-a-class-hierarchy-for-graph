@@ -41,15 +41,8 @@ public:
 		for (int i = 0; i < 100; i++) {
 			matrix[i] = new int[100];
 			for (int j = 0; j < 100; j++){
-				matrix[i][j] = 0;
-				//string temp = " i " + to_string(i) + " | j " + to_string(j)+" | arr "+to_string(matrix[i][j]);
-				//std::cout << temp;
-}
+				matrix[i][j] = 0;}
 		}
-		//int** matrix = new int* [Vertexes.size()];
-		//for (int i = 0; i < Vertexes.size(); i++)
-		//	matrix[i] = new int[Vertexes.size()];
-
 		
 
 		for (Edge* edge : Edges)
@@ -79,6 +72,21 @@ public:
 		return result;
 	}
 
-
-
+	bool isEglesHas(Edge* _edge) {
+		for (Edge* edge : Edges)
+		{
+			if (_edge->getFrom() == edge->getFrom() &&
+				_edge->getTo() == edge->getTo())
+				return true;
+		}
+		return false;
+	}
+	bool isVertexesHas(Vertex* _vertex) {
+		for (Vertex* vertex : Vertexes)
+		{
+			if (_vertex->getNumber()==vertex->getNumber())
+				return true;
+		}
+		return false;
+	}
 };

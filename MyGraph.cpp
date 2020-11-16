@@ -6,9 +6,6 @@
 #include "Graph.h"
 
 
-
-
-
 void GetVertex(Graph* graph, Vertex* vertex)
 {
 	std::wcout << vertex->getNumber() << L": ";
@@ -74,12 +71,12 @@ int main()
 	graph->AddEdge(v2, v6);
 	graph->AddEdge(v6, v5);
 	graph->AddEdge(v5, v6);
-
+	//матрица смежности
 	GetMatrix(graph);
 
 	std::wcout << std::endl;
 	std::wcout << std::endl;
-	/*
+	//куда ведут дороги
 	GetVertex(graph, v1);
 	GetVertex(graph, v2);
 	GetVertex(graph, v3);
@@ -87,9 +84,29 @@ int main()
 	GetVertex(graph, v5);
 	GetVertex(graph, v6);
 	GetVertex(graph, v7);
+	std::wcout << std::endl;
+	std::wcout << std::endl;
 
+	//есть ли такие пути
+	std::wcout << graph->isEglesHas(new Edge(v3, v4));	
+	std::wcout << std::endl;
+	std::wcout << graph->isEglesHas(new Edge(v3, v6));
+	std::wcout << std::endl; 
+	std::wcout << graph->isEglesHas(new Edge(v2, v5));
+	std::wcout << std::endl; 
+	std::wcout << graph->isEglesHas(new Edge(v1, v6));
 	std::wcout << std::endl;
 	std::wcout << std::endl;
-	*/
+	std::wcout << std::endl;
+
+	// есть ли таие вершины
+	std::wcout << graph->isVertexesHas(v1);
+	std::wcout << std::endl;
+	std::wcout << graph->isVertexesHas(v3);
+	std::wcout << std::endl;
+	std::wcout << graph->isVertexesHas(new Vertex(99));
+	std::wcout << std::endl;
+
+
 }
 
