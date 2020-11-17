@@ -35,6 +35,7 @@
 
 	Edge::Edge(Vertex *from, Vertex *to, int weight)
 	{
+		if (from == NULL || to == NULL)return;
 		setFrom(from);
 		setTo(to);
 		setWeight(weight);

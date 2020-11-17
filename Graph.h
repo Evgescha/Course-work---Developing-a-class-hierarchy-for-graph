@@ -40,11 +40,13 @@ public:
 	// метод добавления вершины
 	void AddVertex(Vertex* vertex)
 	{
+		if (vertex == NULL)return;
 		Vertexes.push_back(vertex);
 	}
 	// метод добавления ребра
 	void AddEdge(Vertex* from, Vertex* to)
 	{
+		if (from == NULL || to == NULL)return;
 		auto edge = new Edge(from, to);
 		Edges.push_back(edge);
 	}
@@ -71,6 +73,7 @@ public:
 	std::list<Vertex*> GetVertexLists(Vertex* vertex)
 	{
 		std::list<Vertex*> result = std::list<Vertex*>();
+		if (vertex == NULL)return result;
 
 		for (Edge* edge : Edges)
 		{
@@ -84,6 +87,7 @@ public:
 	}
 	// метод проверки, есть ли в текущем графе переданное ребро
 	bool isEglesHas(Edge* _edge) {
+		if (_edge == NULL)return false;
 		for (Edge* edge : Edges)
 		{
 			if (_edge->getFrom()->getNumber() == edge->getFrom()->getNumber() &&
@@ -94,6 +98,7 @@ public:
 	}
 	// метод проверки, есть ли в текущем графе переданная вершина
 	bool isVertexesHas(Vertex* _vertex) {
+		if (_vertex == NULL)return false;
 		for (Vertex* vertex : Vertexes)
 		{
 			if (_vertex->getNumber()==vertex->getNumber())
@@ -104,6 +109,7 @@ public:
 	//метод пересечения графов
 	static Graph* crossing(Graph* g1, Graph* g2) {
 		Graph* graph = new Graph();
+		if (g1 == NULL || g2==NULL)return graph;
 		//пробегаем первый граф по дорогам
 		for (Edge* e1 : g1->getEdges())
 		{
@@ -123,7 +129,7 @@ public:
 	// метод объединения графов
 	static Graph* alliance(Graph* g1, Graph* g2) {
 		Graph* graph = new Graph();
-
+		if (g1 == NULL || g2 == NULL)return graph;
 		//пробегаем первый граф по вершинам
 		for (Vertex* v1 : g1->getVertexes())
 			graph->AddVertex(v1);
@@ -151,6 +157,7 @@ public:
 	//вывод матрицы графа на экран
 	static void GetMatrix(Graph* graph)
 	{
+		if (graph == NULL )return ;
 		int** matrix = graph->GetMatrix();
 		for (int i = 0; i < graph->getVertexCount(); i++)
 		{
@@ -175,6 +182,7 @@ public:
 	//вывод на экран вершин, в которые можно попасть из вершины заданного графа
 	static void GetVertex(Graph* graph, Vertex* vertex)
 	{
+		if (graph == NULL || vertex == NULL)return ;
 		std::wcout << vertex->getNumber() << L": ";
 		for (Vertex* v : graph->GetVertexLists(vertex))
 		{
