@@ -2,7 +2,7 @@
 #include "Edge.h"
 #include "Vertex.h"
 
-
+// реализация гет/сеттеров и конструктора
 	Vertex *Edge::getFrom() const
 	{
 		return From;

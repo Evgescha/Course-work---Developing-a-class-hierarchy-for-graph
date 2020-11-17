@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Vertex.h"
+// реализация гет/сеттеров и конструктора
 int Vertex::getNumber() const
 {
 	return Number;
