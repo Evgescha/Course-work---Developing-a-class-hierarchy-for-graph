@@ -90,6 +90,12 @@ int main()
 	std::cout << "Матрица смежности после пересечения графов!\n";
 	Graph().GetMatrix(crossing);
 
+
+	alliance->SaveToFile("alliance.txt");
+	graph2=Graph().readFromFile("alliance.txt");
+	std::cout << "Матрица смежности после сохранение графа в файл и чтение из него!\n";
+	Graph().GetMatrix(graph2);
+
 	std::wcout << std::endl;
 	std::wcout << std::endl;
 	std::wcout << std::endl;
